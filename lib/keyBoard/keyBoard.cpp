@@ -1,5 +1,6 @@
 
-#include "Arduino.h"
+#include <Arduino.h>
+#include "keyBoard.h"
 
             //paramiters of keyboard
 const uint8_t numberOfRows = 5;
@@ -7,17 +8,12 @@ const uint8_t numberOfCol = 4;
 uint8_t pinRow[numberOfRows] = {2, 3, 4, 5, 6}; //number of pin
 uint8_t pinCol[numberOfCol] = {A0, A1, A2, A3}; //number of pin
 uint8_t doubleClickPouse = 100;
-uint8_t nextKeyTime = 1000;
+uint16_t nextKeyTime = 1000;
 
             //auxiliary variables
 bool keyPressed = false;
 long int previousMillis = 0;
 long int currenMillis = 0;
-
-            //Prototype functions
-void readKeyboard();
-void checkMyKey(uint8_t i, uint8_t j);
-void printKey(const char myString[]);
 
             //functions
 void readKeyboard(){

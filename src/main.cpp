@@ -1,23 +1,20 @@
 
-#include "Arduino.h"
-#include "readKeyboard.h"
+#include <Arduino.h>
+#include "../lib/navBoard/naviBoard.h"
+#include "../lib/display/display.h"
+#include "controlRelays.h"
 
-
-
-
-
-void setup() {
+void setup()
+{
+  initDisplay();
+  showDecorators();
   Serial.begin(9600);
+  setupPins();
+  showMessage(actualMessageNum);
+  showInfo(actualMessageNum);
 }
 
-
- 
-void loop() 
-{ 
-readKeyboard();
-
+void loop()
+{
+  readBoard();
 }
-
-
-
-
